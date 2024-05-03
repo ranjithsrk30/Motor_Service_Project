@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        #error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        #success-message {
+            color: green;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body style="background-color: aqua;">
+<form id="feedbackForm" onsubmit="submitForm(event)">
+    <label for="technicianName">Technician's Name:</label>
+    <input type="text" id="technicianName" name="technicianName" required>
+    <label for="workRating">Rate the Work:</label>
+    <select id="workRating" name="workRating" required>
+        <option value="" disabled selected>Select rating</option>
+        <option value="5">5 - Excellent</option>
+        <option value="4">4 - Good</option>
+        <option value="3">3 - Average</option>
+        <option value="2">2 - Below Average</option>
+        <option value="1">1 - Poor</option>
+    </select>
+    <label for="overallFeedback">Overall Work:</label>
+    <textarea id="overallFeedback" name="overallFeedback" rows="4" required></textarea>
+    <label for="photoUpload">Photo Upload:</label>
+    <input type="file" id="photoUpload" name="photoUpload" required>
+    <div id="error-message"></div>
+    <div id="success-message"></div>
+    <button type="submit">Submit Feedback</button>
+</form>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault(); 
+
+        var technicianName = document.getElementById("technicianName").value;
+        var workRating = document.getElementById("workRating").value;
+        var overallFeedback = document.getElementById("overallFeedback").value;
+        var photoUpload = document.getElementById("photoUpload");
+
+        var errorMessage = document.getElementById("error-message");
+        var successMessage = document.getElementById("success-message");
+
+        errorMessage.innerHTML = "";
+        successMessage.innerHTML = "";
+
+        if (technicianName.trim() === "") {
+            errorMessage.innerHTML = "Technician's Name is required";
+            return;
+        }
+        if (!/^[A-Za-z]/.test(technicianName)) {
+            errorMessage.innerHTML = "Technician's Name should start with a letter";
+            return;
+        }
+        if (workRating.trim() === "") {
+            errorMessage.innerHTML = "Work Rating is required";
+            return;
+        }
+        if (overallFeedback.trim() === "") {
+            errorMessage.innerHTML = "Overall Work feedback is required";
+            return;
+        }
+        if (photoUpload.files.length === 0) {
+            errorMessage.innerHTML = "Please select a photo for upload";
+            return;
+        }
+        successMessage.innerHTML = "Feedback submitted successfully!";
+        window.location.href = './home.html';
+    }
+</script>
+
+</body>
+</html>

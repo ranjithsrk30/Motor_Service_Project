@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>AJAX Form Submission</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<style>    
+    .parent-container {
+        background-color: #ece2e2aa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 30px rgba(236, 4, 16, 0.897);
+    } 
+</style>
+<style>
+body {
+background-image: url('road1.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+</style>
+<body>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+          <h1 class="text-center" style="color: rgb(239, 10, 10);">SRK Motor Services</h1><br>
+          <div class="parent-container">
+              <div class="container">
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="form-control" name="name" required>
+        <br><br><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" name="email" required>
+        <br><br><br>
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" class="form-control" name="phone" required>
+        <br><br><br>
+    
+        <label for="vehicleModel">Vehicle Model:</label>
+        <input type="text" id="vehicleModel" class="form-control" name="vehicleModel" required>
+        <br><br><br>
+    
+        <label for="motorType">Motor Type:</label>
+        <select id="motorType" class="form-control" name="motorType" required>
+          <option value="">Select Motor Type</option>
+          <option value="electric">Electric</option>
+          <option value="gasoline">Petrol</option>
+          <option value="diesel">Diesel</option>
+        </select>
+        <br><br><br>
+    
+        <label for="manufacturedYear">Manufactured Year:</label>
+        <input type="text" id="manufacturedYear" class="form-control" name="manufacturedYear" required>
+        <br><br><br>
+    
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" class="form-control" name="pincode" required>
+        <br><br><br>
+    
+        <label for="city">City:</label>
+        <input type="text" id="city" class="form-control" name="city" required>
+        <br><br><br>
+    
+        <label for="state">State:</label>
+        <input type="text" id="state" class="form-control" name="state" required>
+        <br><br><br>
+    
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" class="form-control" rows="4" required></textarea>
+        <br><br><br>
+    
+        <label for="issue">Issue:</label>
+        <textarea id="issue" name="issue" class="form-control" rows="4" placeholder="optional"></textarea>
+        <br><br><br>
+        <input type="submit" id="srk" class="btn btn-primary" value="Submit">
+        <script src="./val.js"></script>
+    </form>
+    <div id="result"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
